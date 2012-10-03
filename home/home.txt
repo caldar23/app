@@ -1,0 +1,103 @@
+===== phone-tmpl
+{{Data}}
+    
+    <div class="scroller">
+        <div class="content">
+            <div id="wrap">
+                <div class="featured">
+                    <p class="featured-post"><b>Featured post</b></p>
+                    <p class="featured-post-title">Post Title</p>
+                    <p>Post content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo euismod metus, ut tincidunt metus ullamcorper adipiscing. Morbi sit amet lorem in metus dictum hendrerit sed sed mauris. Aliquam erat volutpat. Nullam mattis erat vitae ipsum fringilla vel varius felis mattis.</p>
+                </div>
+
+                <div class="home-ads">
+
+                    <div id="home-ad1">
+                        <img src="http://dev.cldar.com/wp-content/uploads/2012/08/idk-ad.jpg">
+                    </div>
+                    <div id="home-ad2">
+                        <img src="http://dev.cldar.com/wp-content/uploads/2012/08/flabbergasted-ad.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>phone</p>
+{{/Data}}
+
+===== tablet-tmpl
+{{Data}}
+    
+    <div class="scroller">
+        <div class="content">
+            <div id="wrap">
+                <div class="featured" data-guid="http://dev.cldar.com/?p=264">
+                    <p class="featured-post"><b>Featured post</b></p>
+                    <p class="featured-post-title">Post Title</p>
+                    <p>Post content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo euismod metus, ut tincidunt metus ullamcorper adipiscing. Morbi sit amet lorem in metus dictum hendrerit sed sed mauris. Aliquam erat volutpat. Nullam mattis erat vitae ipsum fringilla vel varius felis mattis.</p>
+                </div>
+
+                <div class="home-ads">
+
+                    <div id="home-ad1">
+                        <img src="http://dev.cldar.com/wp-content/uploads/2012/08/flabbergasted-ad.jpg">
+                    </div>
+                    <div id="home-ad2">
+                        <img src="http://dev.cldar.com/wp-content/uploads/2012/08/idk-ad.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+        <p>tablet</p>
+{{/Data}}
+
+
+===== phone-settings-tmpl
+{{Data}}
+    
+    <div class="scroller">
+        <div class="content">
+            <div id="wrap">
+                <p>Um... Login?</p>
+            </div>
+        </div>
+        <p>phone</p>
+{{/Data}}
+
+===== tablet-settings-tmpl
+    
+    <div class="scroller">
+        <div class="content">
+            <div id="wrap">
+                <div id="warning"></div>
+
+                <!-- return false. do not actually submit the form -->
+                <form onsubmit="TabletBlogView.login(); return false">
+                    <!-- note "autocorrect" and "autocapitalize" attributes -->
+                    <input type="text" id="username" value="{{username}}" maxlength="255" autocorrect="off" autocapitalize="off"><br>
+
+                    <input type="password" id="password" value="" maxlength="255"><br>
+
+                    <button id="login-button">Log In</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+
+        <p>tablet</p>

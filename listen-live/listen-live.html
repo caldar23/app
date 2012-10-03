@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="bc-manifest" content="../manifest.json" />
+    <title>Live</title>
+    <link rel="stylesheet" href="../djc-2.0.css" />
+    <link rel="stylesheet" href="listen-live.css" />
+    <script type="text/javascript" src="../brightcove-app-cloud-1.10.2.js"></script>
+    <script type="text/javascript" src="listen-live.js"></script>
+    
+    <script>
+    bc.device.setAutoRotateDirections(["all"]);
+
+    $(bc).bind("init", function (evt) {
+        var view = BlogView.factory();
+        view.init();
+    });
+    </script>
+
+
+  </head>
+  <body>
+
+
+
+    <div id="loading" class="loading">Loading...</div>
+
+    <div id="index-page">
+      <!-- wait for it -->
+    </div>
+
+
+
+
+
+
+    
+  </body>
+</html>

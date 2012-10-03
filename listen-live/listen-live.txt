@@ -1,0 +1,47 @@
+===== phone-tmpl
+{{Data}}
+	<header class="header background-c">
+		<h1>Live</h1> 
+	</header>
+	<div class="scroller">
+		<div class="content">
+			<div id="wrap">
+					<p><b>{{item_title}}</b></p>
+					<div class="left-column">
+						<img src="{{item_image}}" class="live_image" />
+					</div>
+					<div class="right-column"> 
+						<p>{{item_subtitle}}</p>
+						<p>{{item_schedule}}</p>
+					</div>
+					<a href="{{item_audio}}"><div class="djc-btn">Listen</div></a>
+					<p>awesome sharing buttons go here </p>
+					<p>{{item_description}}</p>
+
+			</div>
+		</div>
+{{/Data}}
+
+===== tablet-tmpl
+{{Data}}
+	<header class="header background-c">
+		<h1>Live Tablet!</h1> 
+	</header>
+	<div class="scroller">
+		<div class="content">
+			<div id="wrap">
+					<p><b>{{item_title}}</b></p>
+					<div class="left-column">
+						<img src="{{item_image}}" class="live_image" />
+					</div>
+					<div class="right-column"> 
+						<p>{{item_subtitle}}</p>
+						<p>{{item_schedule}}</p>
+					</div>
+					<a href="{{item_audio}}"><div class="djc-btn">Listen</div></a>
+					<p>awesome sharing buttons go here </p>
+					<p>{{item_description}}</p>
+
+			</div>
+		</div>
+{{/Data}}

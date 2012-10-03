@@ -1,0 +1,94 @@
+{
+    "description": "DaniJohnson.com",
+    "version": "2.0",
+    "devices": [
+        "iPhone",
+        "Android",
+        "iPad",
+        "Android Tablet"
+    ],
+    "platformConfig": {
+        "android": {
+            "nativeNavigation": true
+        },
+        "iOS": {
+            "nativeNavigation": true
+        }
+    },
+    "name": "DaniJohnson",
+    "views": [
+        {
+            "navigationTitle": "Home",
+            "navigationIcon": "/home/home.png",
+            "uri": "./home/home.html",
+            "markup": "./home/home.txt",
+            "data": [
+                {
+                    "name": "about",
+                    "contentFeed": "50296e5c3f62d5080d009729",
+                    "type": "feed"
+                }
+            ]
+        },
+        {
+            "navigationTitle": "Listen Live",
+            "navigationIcon": "listen-live/listen-live.png",
+            "uri": "./listen-live/listen-live.html",
+            "markup": "./listen-live/listen-live.txt",
+            "data": [
+                {
+                    "name": "live",
+                    "contentFeed": "50291d092fa4021d7201ef56",
+                    "type": "feed"
+                }
+            ]
+        },
+        {
+            "navigationTitle": "Free Training",
+            "navigationIcon": "images/icons/archive.png",
+            "uri": "./html/archive.html",
+            "markup": "./txt/markup/archive.txt",
+            "data": [
+                {
+                    "name": "archive",
+                    "contentFeed": "5020277e2fa4021338040fa1",
+                    "type": "feed"
+                },
+                {
+                    "name": "ads",
+                    "contentFeed": "5025469b2fa402126e000017",
+                    "type": "feed"
+                }
+            ],
+            "settings": [
+                {
+                    "name": "date-format",
+                    "type": "string",
+                    "value": "ddd, MMM D YYYY, h:mm a"
+                }
+            ],
+            "styles": [
+                {
+                    "name": "article-index-title",
+                    "type": "color",
+                    "attribute": "color",
+                    "value": "#0066CC"
+                }
+            ]
+        },
+        {
+            "navigationTitle": "Insiders' Only",
+            "navigationIcon": "images/icons/More.png",
+            "uri": "./html/More.html",
+            "markup": "./txt/markup/More.txt",
+            "data": [
+                {
+                    "name": "about",
+                    "contentFeed": "50296e5c3f62d5080d009729",
+                    "type": "feed"
+                }
+            ]
+        }
+
+    ]
+}
