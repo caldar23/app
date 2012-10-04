@@ -76,13 +76,12 @@ PhoneBlogView.prototype = new BlogView();
 
 
 
+
+
 /*
  * Tablet functionality.
  */
 function TabletBlogView() {
-
-    //settings = new HomeView();
-    //settings.init();
 
     this.init = function () {
         this.loadBlog(handleData);
@@ -96,72 +95,9 @@ function TabletBlogView() {
             showLoginForm();
         }
 
-        $("body").on("tap", "#logout-button", this.logout);      
+        //$("body").on("tap", "#logout-button", this.logout);      
         
-    };    
-
-    var registerEventListeners = function () {
-
-        // listen for an article tap
-        $(".featured").live("tap", function (evt) {
-            var guid = evt.currentTarget.getAttribute("data-guid");
-            var article = getArticle(guid);
-
-            renderArticleDetail(article);
-
-            startContentSession(article);
-        });
-
-        // listen for the settings button tap
-        $(".settings-button").live("tap", function (evt) {
-            loadSettings();
-
-        });
-
-        // listen for a "back" tap
-        $(".back-button").live("tap", function (evt) {
-            bc.ui.backPage();
-
-        });
-
-        
-    };
-
-    var loadSettings = function (data) {
-        var template = bc.templates["tablet-settings-tmpl"];
-        var context = { "settings": data };
-        var markup = Mark.up(template, context);
-
-        //document.getElementById("settings-page-template").innerHTML = template;
-
-        var page = document.getElementById("settings-page");
-        bc.ui.forwardPage(page);
-
-        //settings = new HomeView();
-        //settings.init();
-
-    };
-
-
-    this.hello = function () { 
-        console.log("hello!");
-    }
-
-    var AUTH_URL = "https://www1.moon-ray.com/api.php/json/pilotpress/authenticate_user";
-    var APP_ID = "2_5668_IQnWI95eM";
-    var API_KEY = "M7UGtKCkX2gHkan";
-
-    // initialize this view
-    /*this.init = function () {
-        if (getSession() == true) {
-            loadContent();
-        }
-        else {
-            showLoginForm();
-        }
-
-        $("body").on("tap", "#logout-button", this.logout);
-    };*/
+    };   
 
     // authenticate the user
     this.login = function () {
@@ -183,8 +119,98 @@ function TabletBlogView() {
         }
     };
 
+    var registerEventListeners = function () {
+
+        // listen for an article tap
+        $(".featured").live("tap", function (evt) {
+            var guid = evt.currentTarget.getAttribute("data-guid");
+            var article = getArticle(guid);
+
+            renderArticleDetail(article);
+
+            startContentSession(article);
+        });
+
+        // listen for the settings button tap
+        $(".settings-button").live("tap", function (evt) {
+            loadSettings();
+
+        });
+
+        // listen for the logout button tap
+        $("#logout-button").live("tap", function (evt) {
+            logout();
+
+        });
+
+        // listen for a "back" tap
+        $(".back-button").live("tap", function (evt) {
+            bc.ui.backPage();
+
+        });
+
+        
+    };
+
+    var loadSettings = function (data) {
+        var template = bc.templates["tablet-settings-tmpl"];
+        var context = { "settings": data };
+        var markup = Mark.up(template, context);
+
+        //document.getElementById("settings-page-template").innerHTML = template;
+
+        var page = document.getElementById("settings-page");
+        bc.ui.forwardPage(page);
+    };
+
+};
+
+// Login stuff
+
+login = function () {
+    var creds = getFormCredentials();
+    var opts = {
+            data: {
+                "app_id" : APP_ID,
+                "api_key" : API_KEY,
+                "data": JSON.stringify(getFormCredentials())
+          
+            }
+        };
+
+    // proceed only if both fields have values
+    if (OAPcreds.username && OAPcreds.password) {
+        showLoading();
+
+        bc.device.postDataToURL(AUTH_URL, handleAuthResponse, handleAuthError, opts);
+    }
+};
+
+
+hello = function () { 
+        console.log("hello!");
+    }
+
+    var AUTH_URL = "https://www1.moon-ray.com/api.php/json/pilotpress/authenticate_user";
+    var APP_ID = "2_5668_IQnWI95eM";
+    var API_KEY = "M7UGtKCkX2gHkan";
+
+    // initialize this view
+    /*this.init = function () {
+        if (getSession() == true) {
+            loadContent();
+        }
+        else {
+            showLoginForm();
+        }
+
+        $("body").on("tap", "#logout-button", this.logout);
+    };*/
+
+    
+
     // expire the user's authentication token and display the login form
-    this.logout = function () {
+logout = function () {
         var auth = bc.core.cache("auth");
         auth.expires = 0;
 
@@ -307,14 +333,15 @@ function TabletBlogView() {
     var getSession = function () {
         var auth = bc.core.cache("auth") || {};
         var now = new Date().getTime();
+        
         // if not expired
-  //      if (auth !== null) {
-  //         if (auth.expires > now) {
-  //              return true;
-  //          }
+        if (auth !== null) {
+           if (auth.expires > now) {
+                return true;
+            }
 
-  //          return false;
-  //      }
+            return false;
+        }
         
         return false;
 
@@ -334,7 +361,7 @@ function TabletBlogView() {
 
     // display the login form with the current username (if exists)
     var showLoginForm = function () {
-        var template = bc.templates["tablet-settings-tmpl"];
+        var template = bc.templates["tablet-login-tmpl"];
         var context = {
             "username": getUsername()
         }; 
@@ -351,18 +378,18 @@ function TabletBlogView() {
     // load content from server
     var loadContent = function () {
 
-        var template = bc.templates["content-template"];
+        var template = bc.templates["tablet-settings-tmpl"];
             var context = {
                 "username": getUsername()
             };
             var markup = Mark.up(template, context);
 
-            $("#content").html(markup);
+            $("#settings-page-template").html(markup);
 
             // TODO move into bc.ui
             //Scrollbox.get("content-scroll").top();
         
-        hideLoadingMessage();
+        hideLoading();
 
         $("#logout-button").show();
 
@@ -426,6 +453,12 @@ function TabletBlogView() {
         }, 500);
     };
 */
-}
+    var showLoading = function () {
+        document.getElementById("loading").style.opacity = 1;
+    };
+
+    var hideLoading = function () {
+        document.getElementById("loading").style.opacity = 0;
+    };
 
 TabletBlogView.prototype = new BlogView();

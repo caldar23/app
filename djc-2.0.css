@@ -182,6 +182,33 @@ body {
    opacity: 1;
  }
 
+ /* A logout button */
+#logout-button { 
+  width: 60px;
+  height: 30px;
+  background-image: url('images/settings-white-20.png');   
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: solid 1px #000;
+  -webkit-border-radius: 5px;
+  -webkit-transform: opacity;
+
+}
+
+#logout-button:active {
+  background-size: 20px 20px, 60px 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('images/settings-white-20.png'), -webkit-gradient(linear, left top, left bottom, color-stop(0, #336699), color-stop(1, #336699));
+  z-index: 1;
+  position: relative;
+ }
+
+#logout-button.show {
+   opacity: 1;
+ }
+
 /* The header element that appears in most templates.  This has a set height and a background image.*/
 .header { position: relative; width: 100%; height: 44px; color: #cf5a14; background text-shadow: #000 0px 2px 1px; -webkit-box-flex: 0; overflow: hidden; background: transparent;}
 /* The text that often appears in the center of the header */
@@ -196,6 +223,8 @@ body {
 .header .refresh-button { position: absolute; top: 5px; right: 5px; }
 /* Provide positioning for the settings button if it appears in the header */
 .header .settings-button { position: absolute; top: 5px; right: 5px; }
+/* Provide positioning for the logout button if it appears in the header */
+.header #logout-button { position: absolute; top: 5px; right: 5px; }
 
 
 /***************************************
