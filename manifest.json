@@ -45,9 +45,9 @@
         },
         {
             "navigationTitle": "Free Training",
-            "navigationIcon": "images/icons/archive.png",
-            "uri": "./html/archive.html",
-            "markup": "./txt/markup/archive.txt",
+            "navigationIcon": "free-training/free-training.png",
+            "uri": "./free-training/free-training.html",
+            "markup": "./free-training/free-training.txt",
             "data": [
                 {
                     "name": "archive",
